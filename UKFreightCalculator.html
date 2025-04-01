@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;英國集運費用計算器&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f4f4f4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 90%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 400px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #004a99;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #004a99;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #003366;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#result, #error, #volumeWeight, #remark {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#error {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: red;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#remark {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>table {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-collapse: collapse;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>th, td {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>th {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f4f4f4;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function calculateVolumeWeight() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let length = parseFloat(document.getElementById("length").value);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let width = parseFloat(document.getElementById("width").value);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let height = parseFloat(document.getElementById("height").value);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let weight = parseFloat(document.getElementById("weight").value);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let volumeWeightElement = document.getElementById("volumeWeight");</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!isNaN(length) &amp;&amp; !isNaN(width) &amp;&amp; !isNaN(height) &amp;&amp; length &gt; 0 &amp;&amp; width &gt; 0 &amp;&amp; height &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let volumeWeight = (height * length * width) / 10000;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let finalWeight = Math.max(weight, volumeWeight);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>volumeWeightElement.innerText = `計費重量: ${finalWeight.toFixed(2)} KG`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>volumeWeightElement.innerText = "";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;英國集運費用計算器&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;重量 (kg): &lt;/label&gt;&lt;input type="number" id="weight" step="0.1" oninput="calculateVolumeWeight()"&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;長度 (cm): &lt;/label&gt;&lt;input type="number" id="length" step="1" oninput="calculateVolumeWeight()"&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;闊度 (cm): &lt;/label&gt;&lt;input type="number" id="width" step="1" oninput="calculateVolumeWeight()"&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;高度 (cm): &lt;/label&gt;&lt;input type="number" id="height" step="1" oninput="calculateVolumeWeight()"&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;計費重量 (kg): &lt;/label&gt;&lt;p id="volumeWeight"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="remark"&gt;計費重量 ＝ 長 x 闊 x 高 / 10000&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="calculateFreightCharge()"&gt;計算運費&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="result"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="error"&gt;&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th&gt;體積重 (kg)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th&gt;標準箱&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th&gt;非標準1&lt;br&gt;(長度 &lt; 100cm, 周長 &gt; 300cm)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th&gt;非標準2&lt;br&gt;(長度 100-200cm, 周長 &lt; 300cm)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th&gt;非標準3&lt;br&gt;(長度 ≥ 200cm 或 周長 &gt; 300cm)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;&lt;td&gt;30&lt;/td&gt;&lt;td&gt;650&lt;/td&gt;&lt;td&gt;900&lt;/td&gt;&lt;td&gt;1300&lt;/td&gt;&lt;td&gt;1300&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;&lt;td&gt;40&lt;/td&gt;&lt;td&gt;Extra box needed&lt;/td&gt;&lt;td&gt;1200&lt;/td&gt;&lt;td&gt;2000&lt;/td&gt;&lt;td&gt;2000&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;&lt;td&gt;50&lt;/td&gt;&lt;td&gt;Extra box needed&lt;/td&gt;&lt;td&gt;1500&lt;/td&gt;&lt;td&gt;2300&lt;/td&gt;&lt;td&gt;2300&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;&lt;td&gt;60&lt;/td&gt;&lt;td&gt;Extra box needed&lt;/td&gt;&lt;td&gt;1800&lt;/td&gt;&lt;td&gt;2600&lt;/td&gt;&lt;td&gt;2600&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;&lt;td&gt;70&lt;/td&gt;&lt;td&gt;Extra box needed&lt;/td&gt;&lt;td&gt;2100&lt;/td&gt;&lt;td&gt;2900&lt;/td&gt;&lt;td&gt;2900&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;&lt;td&gt;80&lt;/td&gt;&lt;td&gt;Extra box needed&lt;/td&gt;&lt;td&gt;2400&lt;/td&gt;&lt;td&gt;3200&lt;/td&gt;&lt;td&gt;3200&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;&lt;td&gt;90&lt;/td&gt;&lt;td&gt;Extra box needed&lt;/td&gt;&lt;td&gt;2700&lt;/td&gt;&lt;td&gt;3500&lt;/td&gt;&lt;td&gt;3500&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;&lt;td&gt;99&lt;/td&gt;&lt;td&gt;Extra box needed&lt;/td&gt;&lt;td&gt;3000&lt;/td&gt;&lt;td&gt;3800&lt;/td&gt;&lt;td&gt;3800&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;非標準1: 長度小於100cm，周長大於300cm&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;非標準2: 長度100-200cm，周長小於300cm&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;非標準3: 長度大於等於200cm或周長大於300cm&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
