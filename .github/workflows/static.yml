@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>英國集運費用計算器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 90%;
+            width: 400px;
+        }
+        h2 {
+            color: #004a99;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #004a99;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #003366;
+        }
+        #result, #error, #volumeWeight, #remark {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        #error {
+            color: red;
+        }
+        #remark {
+            font-size: 14px;
+            color: #555;
+        }
+        table {
+            width: 100%;
+            margin-top: 15px;
+            border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+            font-size: 14px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+    <script>
+        function calculateVolumeWeight() {
+            let length = parseFloat(document.getElementById("length").value);
+            let width = parseFloat(document.getElementById("width").value);
+            let height = parseFloat(document.getElementById("height").value);
+            let weight = parseFloat(document.getElementById("weight").value);
+            let volumeWeightElement = document.getElementById("volumeWeight");
+            
+            if (!isNaN(length) && !isNaN(width) && !isNaN(height) && length > 0 && width > 0 && height > 0) {
+                let volumeWeight = (height * length * width) / 10000;
+                let finalWeight = Math.max(weight, volumeWeight);
+                volumeWeightElement.innerText = `計費重量: ${finalWeight.toFixed(2)} KG`;
+            } else {
+                volumeWeightElement.innerText = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>英國集運費用計算器</h2>
+        <label>重量 (kg): </label><input type="number" id="weight" step="0.1" oninput="calculateVolumeWeight()"><br>
+        <label>長度 (cm): </label><input type="number" id="length" step="1" oninput="calculateVolumeWeight()"><br>
+        <label>闊度 (cm): </label><input type="number" id="width" step="1" oninput="calculateVolumeWeight()"><br>
+        <label>高度 (cm): </label><input type="number" id="height" step="1" oninput="calculateVolumeWeight()"><br>
+        <label>計費重量 (kg): </label><p id="volumeWeight"></p>
+        <p id="remark">計費重量 ＝ 長 x 闊 x 高 / 10000</p>
+        <button onclick="calculateFreightCharge()">計算運費</button>
+        <p id="result"></p>
+        <p id="error"></p>
+        
+        <table>
+            <tr>
+                <th>體積重 (kg)</th>
+                <th>標準箱</th>
+                <th>非標準1<br>(長度 < 100cm, 周長 > 300cm)</th>
+                <th>非標準2<br>(長度 100-200cm, 周長 < 300cm)</th>
+                <th>非標準3<br>(長度 ≥ 200cm 或 周長 > 300cm)</th>
+            </tr>
+            <tr><td>30</td><td>650</td><td>900</td><td>1300</td><td>1300</td></tr>
+            <tr><td>40</td><td>Extra box needed</td><td>1200</td><td>2000</td><td>2000</td></tr>
+            <tr><td>50</td><td>Extra box needed</td><td>1500</td><td>2300</td><td>2300</td></tr>
+            <tr><td>60</td><td>Extra box needed</td><td>1800</td><td>2600</td><td>2600</td></tr>
+            <tr><td>70</td><td>Extra box needed</td><td>2100</td><td>2900</td><td>2900</td></tr>
+            <tr><td>80</td><td>Extra box needed</td><td>2400</td><td>3200</td><td>3200</td></tr>
+            <tr><td>90</td><td>Extra box needed</td><td>2700</td><td>3500</td><td>3500</td></tr>
+            <tr><td>99</td><td>Extra box needed</td><td>3000</td><td>3800</td><td>3800</td></tr>
+        </table>
+        <p>非標準1: 長度小於100cm，周長大於300cm</p>
+        <p>非標準2: 長度100-200cm，周長小於300cm</p>
+        <p>非標準3: 長度大於等於200cm或周長大於300cm</p>
+    </div>
+</body>
+</html>
